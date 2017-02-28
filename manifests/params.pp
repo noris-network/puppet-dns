@@ -53,6 +53,19 @@ class dns::params {
         $group              = 'named'
         $rndcconfgen        = '/usr/sbin/rndc-confgen'
       }
+      'Suse': {
+        $dnsdir             = '/etc'
+        $vardir             = '/var/lib/named'
+        $optionspath        = '/etc/named.options.conf'
+        $zonefilepath       = "${vardir}/dyn"
+        $localzonepath      = undef # "${dnsdir}/named.local.conf"
+        $publicviewpath     = "${dnsdir}/named.zones.conf"
+        $dns_server_package = 'bind-devel'
+        $namedservicename   = 'named'
+        $user               = 'named'
+        $group              = 'named'
+        $rndcconfgen        = '/usr/sbin/rndc-confgen'
+      }
       default: {
         fail ("Unsupported operating system family ${::osfamily}")
       }
